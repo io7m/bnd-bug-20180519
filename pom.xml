@@ -7,7 +7,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.io7m.bugs</groupId>
-  <artifactId>maven-bug-20180519</artifactId>
+  <artifactId>bnd-bug-20180519</artifactId>
   <version>0.0.1</version>
   <packaging>jar</packaging>
 
