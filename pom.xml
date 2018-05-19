@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.io7m.bugs</groupId>
+  <artifactId>maven-bug-20180519</artifactId>
+  <version>0.0.1</version>
+  <packaging>jar</packaging>
+
+  <licenses>
+    <license>
+      <name>ISC License</name>
+      <url>http://io7m.com/license/isc.txt</url>
+    </license>
+  </licenses>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <id>default-jar</id>
+            <configuration>
+              <archive>
+                <manifestEntries>
+                  <License>${project.licenses[0].name}</License>
+                </manifestEntries>
+              </archive>
+            </configuration>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>biz.aQute.bnd</groupId>
+        <artifactId>bnd-maven-plugin</artifactId>
+        <version>4.0.0</version>
+        <executions>
+          <execution>
+            <id>osgi-manifest</id>
+            <goals>
+              <goal>bnd-process</goal>
+            </goals>
+            <configuration>
+              <bnd><![CDATA[
+                License: ${project.licenses[0].name}
+]]></bnd>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
